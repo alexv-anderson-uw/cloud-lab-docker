@@ -14,8 +14,8 @@ import geni.rspec.pg as rspec
 request = portal.context.makeRequestRSpec()
 
 node = request.XenVM("node")
-node.cores = 2
-node.ram = 2048
-node.disk = 8
+node.cores = 64
+node.ram = 4096
+node.disk = 16
 
 portal.context.printRequestRSpec()
