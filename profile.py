@@ -16,7 +16,7 @@ request = portal.context.makeRequestRSpec()
 node = request.RawPC("node")
 
 node.cores = 8     # Effective Cores
-node.ram = 1024 * 4 # RAM = MB/GB * #GB
+node.ram = 8192 # 1024 * 4 # RAM = MB/GB * #GB
 node.disk = 16      # Disk Space
 
 # Ubuntu 16.04 LTS 64-bit
