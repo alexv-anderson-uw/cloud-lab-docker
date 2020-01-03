@@ -14,7 +14,7 @@ import geni.rspec.pg as rspec
 request = portal.context.makeRequestRSpec()
 
 node = request.RawPC("node")
-node.cores = 8
+node.cores = 64
 node.ram = 8192
 node.disk = 16
 # Ubuntu 16.04 LTS 64-bit
