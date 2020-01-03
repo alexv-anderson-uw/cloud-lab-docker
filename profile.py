@@ -9,23 +9,15 @@ a public IP address for the VM itself.)
 """
 
 import geni.portal as portal
-import geni.rspec.pg as pg
+import geni.rspec.pg as rspec
 
 request = portal.context.makeRequestRSpec()
 
 node = request.RawPC("node")
-
-node.cores = 8     # Effective Cores
-node.ram = 8192 # 1024 * 4 # RAM = MB/GB * #GB
-node.disk = 16      # Disk Space
-
+node.cores = 8
+node.ram = 8192
+node.disk = 16
 # Ubuntu 16.04 LTS 64-bit
 node.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD"
-
-# Setup Python tools
-# node.addService(pg.Execute(shell="sh", command="/local/repository/python.sh"))
-
-# Intall PySpark
-# node.addService(pg.Execute(shell="sh", command="/local/repository/pyspark.sh"))
 
 portal.context.printRequestRSpec()
