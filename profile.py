@@ -25,4 +25,7 @@ node.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD"
 # Setup Python tools
 node.addService(pg.Execute(shell="bash", command="/local/repository/python.bash"))
 
+# Intall PySpark
+node.addService(pg.Execute(shell="bash", command="/local/repository/pyspark.bash"))
+
 portal.context.printRequestRSpec()
