@@ -14,7 +14,7 @@ import geni.rspec.pg as pg
 request = portal.context.makeRequestRSpec()
 
 for i in range(0, 2):
-    node = request.RawPC("node-" + i)
+    node = request.RawPC("node-" + str(i))
 
     # Ubuntu 16.04 LTS 64-bit
     node.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD"
