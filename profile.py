@@ -13,15 +13,16 @@ import geni.rspec.pg as pg
 
 request = portal.context.makeRequestRSpec()
 
-node = request.RawPC("node")
+for i in range(0, 2):
+    node = request.RawPC("node-" + i)
 
-# Ubuntu 16.04 LTS 64-bit
-node.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD"
+    # Ubuntu 16.04 LTS 64-bit
+    node.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD"
 
-# Setup Python tools
-node.addService(pg.Execute(shell="bash", command="/local/repository/python.bash"))
+    # Setup Python tools
+    node.addService(pg.Execute(shell="bash", command="/local/repository/python.bash"))
 
-# Intall PySpark
-node.addService(pg.Execute(shell="bash", command="/local/repository/pyspark.bash"))
+    # Intall PySpark
+    node.addService(pg.Execute(shell="bash", command="/local/repository/pyspark.bash"))
 
 portal.context.printRequestRSpec()
