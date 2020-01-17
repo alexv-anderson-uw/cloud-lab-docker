@@ -13,7 +13,8 @@ import geni.rspec.pg as pg
 
 request = portal.context.makeRequestRSpec()
 
-for i in range(0, 2):
+num_pcs = 1
+for i in range(0, num_pcs):
     node = request.RawPC("node-" + str(i))
 
     # Ubuntu 16.04 LTS 64-bit
