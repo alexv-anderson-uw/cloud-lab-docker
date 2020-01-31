@@ -1,5 +1,5 @@
 #!/bin/bash
 
 sudo apt-get update
-sudo apt-get install python-pip
-sudo apt-get install python3-venv
+sudo apt-get --yes --force-yes install python-pip
+sudo apt-get --yes --force-yes install python3-venv
