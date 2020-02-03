@@ -17,8 +17,8 @@ num_pcs = 1
 for i in range(0, num_pcs):
     node = request.RawPC("node-" + str(i))
 
-    # Ubuntu 16.04 LTS 64-bit
-    node.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD"
+    # Ubuntu 18.04 LTS 64-bit
+    node.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD"
 
     # Setup Python tools
     node.addService(pg.Execute(shell="bash", command="/local/repository/python.bash"))
