@@ -5,7 +5,7 @@
 # Update indices
 sudo apt-get update
 # Install packages to allow apt to work over HTTPS
-sudo apt-get install \
+sudo apt-get --yes --force-yes install \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -22,4 +22,4 @@ sudo add-apt-repository \
 # Update indices to include Docker's repository
 sudo apt-get update
 # Install Docker and its dependencies
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt-get --yes --force-yes install docker-ce docker-ce-cli containerd.io

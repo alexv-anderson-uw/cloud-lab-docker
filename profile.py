@@ -1,5 +1,5 @@
 """
-Constructs a XenVM and installs PySpark
+Allocates a PC running Ubuntu 18 and installs Docker CE
 
 Instructions:
 Wait for the profile instance to start, and then log in to the VM via the
@@ -19,12 +19,6 @@ for i in range(0, num_pcs):
 
     # Ubuntu 18.04 LTS 64-bit
     node.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD"
-
-    # Setup Python tools
-    node.addService(pg.Execute(shell="bash", command="/local/repository/python.bash"))
-
-    # Intall PySpark
-    # node.addService(pg.Execute(shell="bash", command="/local/repository/pyspark.bash"))
 
     # Intall Docker
     node.addService(pg.Execute(shell="bash", command="/local/repository/docker.bash"))
