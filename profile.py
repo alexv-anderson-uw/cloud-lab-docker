@@ -24,6 +24,9 @@ for i in range(0, num_pcs):
     node.addService(pg.Execute(shell="bash", command="/local/repository/python.bash"))
 
     # Intall PySpark
-    node.addService(pg.Execute(shell="bash", command="/local/repository/pyspark.bash"))
+    # node.addService(pg.Execute(shell="bash", command="/local/repository/pyspark.bash"))
+
+    # Intall Docker
+    node.addService(pg.Execute(shell="bash", command="/local/repository/docker.bash"))
 
 portal.context.printRequestRSpec()
