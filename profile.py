@@ -12,6 +12,7 @@ import geni.portal as portal
 import geni.rspec.pg as pg
 
 portal.context.defineParameter( "image", "Image", portal.ParameterType.IMAGE, "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD" )
+portal.context.defineParameter( "extra_hd_size", "Install PySpark?", portal.ParameterType.INTEGER, 0 )
 portal.context.defineParameter( "docker", "Install Docker?", portal.ParameterType.BOOLEAN, True )
 portal.context.defineParameter( "p3_tools", "Install Python3 tools?", portal.ParameterType.BOOLEAN, False )
 portal.context.defineParameter( "pyspark", "Install PySpark?", portal.ParameterType.BOOLEAN, False )
@@ -35,5 +36,10 @@ if params.pyspark:
     if not params.p3_tools:
         node.addService(pg.Execute(shell="bash", command="/local/repository/python.bash"))
     node.addService(pg.Execute(shell="bash", command="/local/repository/pyspark.bash"))
+
+if params.extra_hd_size > 0:
+    bs = node.Blockstore("bs", "/bs_part")
+    bs.size = "{}GB".format(params.extra_hd_size)
+
 
 portal.context.printRequestRSpec()
