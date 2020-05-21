@@ -22,6 +22,10 @@ request = portal.context.makeRequestRSpec()
 
 node = request.RawPC("node")
 
+if params.extra_hd_size > 0:
+    bs = node.Blockstore("bs", "/bs_part")
+    bs.size = "{}GB".format(params.extra_hd_size)
+
 node.disk_image = params.image
 
 if params.docker:
@@ -34,10 +38,6 @@ if params.pyspark:
     if not params.p3_tools:
         node.addService(pg.Execute(shell="bash", command="/local/repository/python.bash"))
     node.addService(pg.Execute(shell="bash", command="/local/repository/pyspark.bash"))
-
-if params.extra_hd_size > 0:
-    bs = node.Blockstore("bs", "/bs_part")
-    bs.size = "{}GB".format(params.extra_hd_size)
 
 
 portal.context.printRequestRSpec()
