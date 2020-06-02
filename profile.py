@@ -10,6 +10,7 @@ import geni.portal as portal
 import geni.rspec.pg as pg
 
 portal.context.defineParameter( "image", "Image", portal.ParameterType.IMAGE, "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD" )
+portal.context.defineParameter( "node_type", "Node Type", portal.ParameterType.NODETYPE, "" )
 portal.context.defineParameter( "extra_hd_size", "Size of temporary HD partition in GB (Ask for 5GB more than you need)", portal.ParameterType.INTEGER, 0 )
 portal.context.defineParameter( "docker", "Install Docker?", portal.ParameterType.BOOLEAN, True )
 portal.context.defineParameter( "p3_tools", "Install Python3 tools?", portal.ParameterType.BOOLEAN, False )
@@ -21,6 +22,8 @@ params = portal.context.bindParameters()
 request = portal.context.makeRequestRSpec()
 
 node = request.RawPC("node")
+if len(params.node_type.strip()) > 0:
+    node.hardware_type = params.node_type
 
 node.disk_image = params.image
 
