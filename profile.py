@@ -28,7 +28,10 @@ if len(params.node_type.strip()) > 0:
 node.disk_image = params.image
 
 if params.docker:
-    node.addService(pg.Execute(shell="bash", command="/local/repository/docker.bash"))
+    if params.extra_hd_size > 0:
+        node.addService(pg.Execute(shell="bash", command="/local/repository/docker-block-store.bash"))
+    else:
+        node.addService(pg.Execute(shell="bash", command="/local/repository/docker.bash"))
 
 if params.p3_tools:
     node.addService(pg.Execute(shell="bash", command="/local/repository/python.bash"))
