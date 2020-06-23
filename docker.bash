@@ -5,7 +5,7 @@
 # Update indices
 sudo apt-get update
 # Install packages to allow apt to work over HTTPS
-sudo apt-get --yes --force-yes install \
+sudo apt-get --yes install \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -18,3 +18,5 @@ sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
    stable"
+
+sudo apt-get install -y docker-ce docker-ce-cli
