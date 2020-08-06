@@ -22,8 +22,8 @@ params = portal.context.bindParameters()
 
 request = portal.context.makeRequestRSpec()
 
-if params.num_nodes < 1 or params.num_nodes > 4:
-    portal.context.reportError( portal.ParameterError( "You must choose at least 1 and no more than 4 nodes." ) )
+if params.num_nodes < 1:
+    portal.context.reportError( portal.ParameterError( "You must choose at least 1 node." ) )
 
 nodes = []
 for node_index in range(0, params.num_nodes):
